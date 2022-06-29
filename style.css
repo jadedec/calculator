@@ -1,12 +1,17 @@
 .calculatorDisplay {
-  width: 90%;
+  margin-top: 2rem;
+  width: 95%;
   height: 40%;
+  background-color: rgb(89, 89, 89);
+  border-radius: 20px;
 }
 .calculatorDisplay .calculatorDisplay_output {
-  font-size: 2rem;
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 3rem;
 }
 
-@media screen and (min_width = 768px) {
+@media screen and (min_width: 768px) {
   .calculatorDisplay .calculatorDisplay_output {
     font-size: 3rem;
   }
@@ -38,7 +43,7 @@
   background-color: orange;
 }
 
-@media screen and (min_width = 768px) {
+@media screen and (min_width: 768px) {
   .calculatorKeyboard .calculatorKeyboard_button {
     width: 6rem;
     height: 6rem;
@@ -63,7 +68,7 @@
   height: 100vh;
 }
 
-@media screen and (min_width = 768px) {
+@media screen and (min_width: 768px) {
   .calculator {
     width: 70%;
     height: 70%;
