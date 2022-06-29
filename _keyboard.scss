@@ -1,5 +1,6 @@
 
 .calculatorKeyboard{
+    margin-top: 30px;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -37,6 +38,6 @@
             width: 6rem;
             height: 6rem;
             font-size: 3rem;
+        }
     }
-}
 }

@@ -1,22 +1,26 @@
 .calculatorDisplay {
   margin-top: 2rem;
   width: 95%;
-  height: 40%;
+  height: 10%;
   background-color: rgb(89, 89, 89);
   border-radius: 20px;
 }
 .calculatorDisplay .calculatorDisplay_output {
+  margin-top: 10px;
+  margin-right: 10px;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: flex-end;
   font-size: 3rem;
 }
 
 @media screen and (min_width: 768px) {
   .calculatorDisplay .calculatorDisplay_output {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
 .calculatorKeyboard {
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -70,7 +74,7 @@
 
 @media screen and (min_width: 768px) {
   .calculator {
-    width: 70%;
-    height: 70%;
+    width: 750px;
+    height: 900px;
   }
 }/*# sourceMappingURL=style.css.map */
