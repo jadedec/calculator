@@ -1,0 +1,71 @@
+.calculatorDisplay {
+  width: 90%;
+  height: 40%;
+}
+.calculatorDisplay .calculatorDisplay_output {
+  font-size: 2rem;
+}
+
+@media screen and (min_width = 768px) {
+  .calculatorDisplay .calculatorDisplay_output {
+    font-size: 3rem;
+  }
+}
+.calculatorKeyboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  grid-template-rows: repeat(5, 1fr);
+  height: 50%;
+  width: 90%;
+}
+.calculatorKeyboard .calculatorKeyboard_button {
+  border: none;
+  border-radius: 50%;
+  width: 4.5rem;
+  height: 4.5rem;
+  font-size: 2rem;
+  color: azure;
+}
+.calculatorKeyboard .calculatorKeyboard_button--number {
+  background-color: rgb(89, 89, 89);
+}
+.calculatorKeyboard .calculatorKeyboard_button--special {
+  background-color: rgb(170, 168, 168);
+  color: black;
+}
+.calculatorKeyboard .calculatorKeyboard_button--operate {
+  background-color: orange;
+}
+
+@media screen and (min_width = 768px) {
+  .calculatorKeyboard .calculatorKeyboard_button {
+    width: 6rem;
+    height: 6rem;
+    font-size: 3rem;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+  background-color: black;
+  color: azure;
+  width: 100vw;
+  height: 100vh;
+}
+
+@media screen and (min_width = 768px) {
+  .calculator {
+    width: 70%;
+    height: 70%;
+  }
+}/*# sourceMappingURL=style.css.map */

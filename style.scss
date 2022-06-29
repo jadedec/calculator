@@ -1,0 +1,28 @@
+@use "./display";
+@use "./keyboard";
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.calculator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    background-color: black;
+    color: azure;
+    width:100vw;
+    height: 100vh;
+}
+
+@media screen and (min_width=768px){
+    .calculator{
+        width:70%;
+        height:70%
+    }
+}
+
+
