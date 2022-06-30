@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="./script.js"></script>
     <title>Calculator</title>
 </head>
 
 <body>
     <main class="calculator">
         <section class="calculatorDisplay">
-            <p class="calculatorDisplay_output">0</p>
+            <input type="text" class="calculatorDisplay_output" value="0">
         </section>
 
         <section class="calculatorKeyboard">
@@ -35,7 +36,8 @@
             <button class="calculatorKeyboard_button calculatorKeyboard_button--operate">+</button>
             <button class="calculatorKeyboard_button calculatorKeyboard_button--number">0</button>
             <button class="calculatorKeyboard_button calculatorKeyboard_button--number">.</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--special">←</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--special"
+                onclick="backspace();">←</button>
             <button class="calculatorKeyboard_button calculatorKeyboard_button--operate">=</button>
         </section>
     </main>
