@@ -6,6 +6,11 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
+body{
+    background-color: black;
+    align-items: center;
+}
+
 .calculator{
     display: flex;
     flex-direction: column;
@@ -18,10 +23,12 @@
     height: 100vh;
 }
 
-@media screen and (min_width:768px){
+@media screen and (min-width:768px){
     .calculator{
-        width:750px;
-        height:900px;
+        border-radius: 20px;
+        border: 2px solid gold;
+        width: 650px;
+        height: 800px;
     }
 }
 

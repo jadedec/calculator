@@ -3,7 +3,7 @@
 .calculatorDisplay{
     margin-top: 2rem;
     width: 95%;
-    height: 10%;
+    height: 20%;
     background-color: rgb(89, 89, 89);
     border-radius: 20px;
     .calculatorDisplay_output{
@@ -13,15 +13,15 @@
         flex-direction: row;
         justify-content: flex-end;
 
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     
 }
 
-@media screen and (min_width: 768px){
+@media screen and (min-width: 768px){
     .calculatorDisplay{
         .calculatorDisplay_output{
-            font-size: 4rem;
+            font-size: 3rem;
         }
     }
 }

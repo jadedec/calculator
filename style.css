@@ -1,7 +1,7 @@
 .calculatorDisplay {
   margin-top: 2rem;
   width: 95%;
-  height: 10%;
+  height: 20%;
   background-color: rgb(89, 89, 89);
   border-radius: 20px;
 }
@@ -11,12 +11,12 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
-@media screen and (min_width: 768px) {
+@media screen and (min-width: 768px) {
   .calculatorDisplay .calculatorDisplay_output {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 }
 .calculatorKeyboard {
@@ -47,17 +47,22 @@
   background-color: orange;
 }
 
-@media screen and (min_width: 768px) {
+@media screen and (min-width: 768px) {
   .calculatorKeyboard .calculatorKeyboard_button {
-    width: 6rem;
-    height: 6rem;
-    font-size: 3rem;
+    width: 5rem;
+    height: 5rem;
+    font-size: 2.5rem;
   }
 }
 * {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: black;
+  align-items: center;
 }
 
 .calculator {
@@ -72,9 +77,11 @@
   height: 100vh;
 }
 
-@media screen and (min_width: 768px) {
+@media screen and (min-width: 768px) {
   .calculator {
-    width: 750px;
-    height: 900px;
+    border-radius: 20px;
+    border: 2px solid gold;
+    width: 650px;
+    height: 800px;
   }
 }/*# sourceMappingURL=style.css.map */

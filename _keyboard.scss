@@ -32,12 +32,12 @@
     }
 }
 
-@media screen and (min_width:768px){
+@media screen and (min-width:768px){
     .calculatorKeyboard{
         .calculatorKeyboard_button{
-            width: 6rem;
-            height: 6rem;
-            font-size: 3rem;
+            width: 5rem;
+            height: 5rem;
+            font-size: 2.5rem;
         }
     }
 }
