@@ -31,7 +31,7 @@ const buttonClick = (event) => {
 
     //connect inputs together
     displayString += event.target.innerHTML;
-    console.log(displayString);
+    //console.log(displayString);
 
     displayBox.innerHTML = displayString;
 }
@@ -57,7 +57,7 @@ const equalClick = (event) => {
     //console.log("Equal clicked");
     newArr = displayString.split(/[+\-\×\÷\=]/);
     //console.log(newArr);
-    num2 = newArr[1];
+    num2 = parseFloat(newArr[1]);
     console.log(`number2 is ${num2}`);
 
     //calculation
@@ -79,16 +79,16 @@ const calculation = () => {
     switch (operator) {
         case "+":
             return num1 + num2;
-            break;
+
         case "-":
             return num1 - num2;
-            break;
+
         case "×":
             return num1 * num2;
-            break;
+
         case "÷":
             return num1 / num2;
-            break;
+
     }
 }
 
