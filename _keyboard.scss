@@ -29,6 +29,10 @@
         &--operate{
             background-color: orange;
         }
+        &:active{
+            border-radius: 25%;
+            // transition-duration: 500ms;
+        }
     }
 }
 
