@@ -12,6 +12,7 @@
 //global variable
 let num1 = "";
 let num2 = "";
+let result = "";
 let displayString = "";
 
 
@@ -19,12 +20,12 @@ const displayBox = document.querySelector("#display");
 
 const numberButton = document.querySelectorAll(".calculatorKeyboard_button--number");
 const operateButton = document.querySelectorAll(".calculatorKeyboard_button--operate");
-
+const equalButton = document.querySelector("#equal");
 
 
 const buttonClick = (event) => {
     //button clicked
-    console.log("Button Clicked");
+    //console.log("Button Clicked");
     // console.log(event.target.innerHTML);
 
     //connect inputs together
@@ -49,22 +50,40 @@ operateButton.forEach(button => { button.addEventListener("click", operatorClick
 //when equal clicked, give the number to num2
 const equalClick = (event) => {
     console.log("Equal clicked");
-    // num2 =;
+    newArr = displayString.split(/[+\-\×\÷\=]/);
+    console.log(newArr);
+    num2 = newArr[1];
     console.log(`number2 is ${num2}`);
-    calculation()
+    result = calculation();
+
 }
+equalButton.addEventListener("click", equalClick)
 
 
 
 
 
 
-
+//+-×÷ switch cases
+const calculation = () => {
+    let operator =
+    switch (operator) {
+        case '+':
+            return num1 + num2;
+        case '-':
+            return num1 - num2;
+        case '×':
+            return num1 * num2;
+        case '÷':
+            return num1 / num2;
+    }
+}
 
 //AC button clear function
 const ACButton = document.querySelector("#AC");
 const clearResult = (event) => {
-    document.querySelector("#display").value = "";
+    displayString = "";
+    displayBox.innerHTML = "";
 }
 ACButton.addEventListener("click", clearResult);
 
@@ -88,19 +107,7 @@ switchButton.addEventListener("click", switchSymbol);
 
 
 
-//+-×÷ switch cases
-const calculation = () => {
-    switch (operator) {
-        case '+':
-            return num1 + num2;
-        case '-':
-            return num1 - num2;
-        case '×':
-            return num1 * num2;
-        case '÷':
-            return num1 / num2;
-    }
-}
+
 
 //!
 function factorial(n) {
