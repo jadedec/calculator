@@ -48,6 +48,9 @@
 .calculatorKeyboard .calculatorKeyboard_button--operate {
   background-color: orange;
 }
+.calculatorKeyboard .calculatorKeyboard_button:active {
+  border-radius: 25%;
+}
 
 @media screen and (min-width: 768px) {
   .calculatorKeyboard .calculatorKeyboard_button {
@@ -67,6 +70,7 @@ body {
 }
 
 .calculator {
+  margin: 40px auto;
   position: center;
   display: flex;
   flex-direction: column;
