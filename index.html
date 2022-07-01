@@ -7,24 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <script src="./script.js"></script>
+
     <title>Calculator</title>
 </head>
 
 <body>
     <main class="calculator">
         <section class="calculatorDisplay">
-            <input type="text" class="calculatorDisplay_output" id="display" value="0">
+            <p class="calculatorDisplay_output" id="display" value=""></p>
         </section>
 
         <section class="calculatorKeyboard">
             <button class="calculatorKeyboard_button calculatorKeyboard_button--special" id="AC">AC</button>
             <button class="calculatorKeyboard_button calculatorKeyboard_button--special" id="symbol">+/-</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--special" id="percentage">%</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--special" id="factorial">!</button>
             <button class="calculatorKeyboard_button calculatorKeyboard_button--operate" id="divide">÷</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="seven">7</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="seven" value="7">7</button>
             <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="eight">8</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="nine">9</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="nine" value="9">9</button>
             <button class="calculatorKeyboard_button calculatorKeyboard_button--operate" id="multiply">×</button>
             <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="four">4</button>
             <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="five">5</button>
@@ -40,6 +40,8 @@
             <button class="calculatorKeyboard_button calculatorKeyboard_button--operate" id="equal">=</button>
         </section>
     </main>
+    <script src="./script.js"></script>
 </body>
+
 
 </html>
