@@ -6,14 +6,12 @@
   border-radius: 20px;
 }
 .calculatorDisplay .calculatorDisplay_output {
-  background-color: rgb(89, 89, 89);
-  border: none;
-  border-radius: 20px;
   font-size: 2.5rem;
-  outline: none;
-  height: 50px;
+  height: 100px;
   text-align: right;
-  width: 100%;
+  width: 350px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 @media screen and (min-width: 768px) {
