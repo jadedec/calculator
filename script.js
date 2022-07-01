@@ -14,6 +14,7 @@ let num1 = "";
 let num2 = "";
 let result = "";
 let displayString = "";
+let operator;
 
 
 const displayBox = document.querySelector("#display");
@@ -38,23 +39,34 @@ const buttonClick = (event) => {
 //number and operator displayed
 numberButton.forEach(button => { button.addEventListener("click", buttonClick) });
 operateButton.forEach(button => { button.addEventListener("click", buttonClick) });
+equalButton.addEventListener("click", buttonClick);
 
 //when operator clicked, give the number to num1
 const operatorClick = (event) => {
-    console.log("Operator clicked");
+    //console.log("Operator clicked");
     num1 = parseFloat(displayBox.innerHTML);
     console.log(`number1 is ${num1}`);
+    operator = event.target.innerHTML;
+    //console.log(operator);
+
 }
 operateButton.forEach(button => { button.addEventListener("click", operatorClick) });
 
 //when equal clicked, give the number to num2
 const equalClick = (event) => {
-    console.log("Equal clicked");
+    //console.log("Equal clicked");
     newArr = displayString.split(/[+\-\×\÷\=]/);
-    console.log(newArr);
+    //console.log(newArr);
     num2 = newArr[1];
     console.log(`number2 is ${num2}`);
+
+    //calculation
     result = calculation();
+    console.log(result);
+
+    displayString += result;
+    console.log(displayString);
+    displayBox.innerHTML = displayString;
 
 }
 equalButton.addEventListener("click", equalClick)
@@ -62,26 +74,31 @@ equalButton.addEventListener("click", equalClick)
 
 
 
-
-
 //+-×÷ switch cases
 const calculation = () => {
-    let operator =
     switch (operator) {
-        case '+':
+        case "+":
             return num1 + num2;
-        case '-':
+            break;
+        case "-":
             return num1 - num2;
-        case '×':
+            break;
+        case "×":
             return num1 * num2;
-        case '÷':
+            break;
+        case "÷":
             return num1 / num2;
+            break;
     }
 }
 
 //AC button clear function
 const ACButton = document.querySelector("#AC");
 const clearResult = (event) => {
+    num1 = "";
+    num2 = "";
+    result = "";
+    operator = "";
     displayString = "";
     displayBox.innerHTML = "";
 }
@@ -91,16 +108,17 @@ ACButton.addEventListener("click", clearResult);
 // backspace function for  button
 const backspaceButton = document.querySelector("#delete");
 const backspace = (event) => {
-    const displayStr = document.querySelector("#display").value;
-    const newDisplay = displayStr.substring(0, displayStr.length - 1);
-    document.querySelector("#display").value = newDisplay;
+    const newDisplay = displayString.substring(0, displayString.length - 1);
+    displayString = newDisplay;
+    displayBox.innerHTML = displayString;
 }
 backspaceButton.addEventListener("click", backspace);
 
 //+/-
 const switchButton = document.querySelector("#symbol");
 const switchSymbol = (event) => {
-    document.querySelector("#display").value = 0 - displayStr;
+    displayString = 0 - displayString;
+    displayBox.innerHTML = displayString;
 }
 switchButton.addEventListener("click", switchSymbol);
 
@@ -110,9 +128,20 @@ switchButton.addEventListener("click", switchSymbol);
 
 
 //!
-function factorial(n) {
-    if ((n == 0) || (n == 1))
-        return 1;
-    else
-        return (n * factorial(n - 1));
+const facButton = document.querySelector("#factorial");
+const facClick = (event) => {
+    result = factorial(displayString);
+    console.log(result);
+    displayString += "!=" + result;
+    console.log(displayString);
+    displayBox.innerHTML = displayString;
+
 }
+const factorial = (n) => {
+    if (n <= 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+facButton.addEventListener("click", facClick);
