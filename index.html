@@ -14,31 +14,30 @@
 <body>
     <main class="calculator">
         <section class="calculatorDisplay">
-            <input type="text" class="calculatorDisplay_output" value="0">
+            <input type="text" class="calculatorDisplay_output" id="display" value="0">
         </section>
 
         <section class="calculatorKeyboard">
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--special">AC</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--special">+/-</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--special">%</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--operate">÷</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--number">7</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--number">8</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--number">9</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--operate">×</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--number">4</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--number">5</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--number">6</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--operate">-</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--number">1</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--number">2</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--number">3</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--operate">+</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--number">0</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--number">.</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--special"
-                onclick="backspace();">←</button>
-            <button class="calculatorKeyboard_button calculatorKeyboard_button--operate">=</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--special" id="AC">AC</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--special" id="symbol">+/-</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--special" id="percentage">%</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--operate" id="divide">÷</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="seven">7</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="eight">8</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="nine">9</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--operate" id="multiply">×</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="four">4</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="five">5</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="six">6</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--operate" id="minus">-</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="one">1</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="two">2</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="three">3</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--operate" id="plus">+</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="zero">0</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--number" id="dot">.</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--special" id="delete">←</button>
+            <button class="calculatorKeyboard_button calculatorKeyboard_button--operate" id="equal">=</button>
         </section>
     </main>
 </body>
