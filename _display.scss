@@ -6,17 +6,23 @@
     height: 20%;
     background-color: rgb(89, 89, 89);
     border-radius: 20px;
+    display: grid;
+    gap: 10px;
     .calculatorDisplay_output{
         
         font-size: 2.5rem;
-        
-        height: 100px;
         text-align: right;
         width: 350px;
-        word-wrap:break-word; 
-        word-break:break-all; 
+        
+        // word-wrap:break-word; 
+        // word-break:break-all; 
         // overflow: hidden;
     }
+    #result{
+    font-size: 2rem;
+
+    }
+    
     
 }
 

@@ -18,7 +18,7 @@ let operator = "";
 
 
 const displayBox = document.querySelector("#display");
-
+const resultBox = document.querySelector("#result");
 const numberButton = document.querySelectorAll(".calculatorKeyboard_button--number");
 const operateButton = document.querySelectorAll(".calculatorKeyboard_button--operate");
 const equalButton = document.querySelector("#equal");
@@ -38,8 +38,8 @@ const buttonClick = (event) => {
 //make it shown in display
 //number and operator displayed
 numberButton.forEach(button => { button.addEventListener("click", buttonClick) });
-operateButton.forEach(button => { button.addEventListener("click", buttonClick) });
-equalButton.addEventListener("click", buttonClick);
+//operateButton.forEach(button => { button.addEventListener("click", buttonClick) });
+//equalButton.addEventListener("click", buttonClick);
 
 //when operator clicked, give the number to num1
 const operatorClick = (event) => {
@@ -47,6 +47,8 @@ const operatorClick = (event) => {
     num1 = parseFloat(displayBox.innerHTML);//make sure it is number!!!!
     console.log(`number1 is ${num1}`);
     operator = event.target.innerHTML;
+    resultBox.innerHTML = `${num1} ${operator}`
+    displayString = "";
     //console.log(operator);
 
 }
@@ -55,18 +57,19 @@ operateButton.forEach(button => { button.addEventListener("click", operatorClick
 //when equal clicked, give the number to num2
 const equalClick = (event) => {
     //console.log("Equal clicked");
-    newArr = displayString.split(/[+\-\×\÷\=]/);
-    //console.log(newArr);
-    num2 = parseFloat(newArr[1]);//make sure it is number!!!!
+    // newArr = displayString.split(/[+\-\×\÷\=]/);
+    // //console.log(newArr);
+    // num2 = parseFloat(newArr[1]);//make sure it is number!!!!
+    num2 = parseFloat(displayBox.innerHTML)
     console.log(`number2 is ${num2}`);
 
     //calculation
     result = calculation();
     console.log(result);
 
-    displayString += result;
-    console.log(displayString);
-    displayBox.innerHTML = displayString;
+    resultBox.innerHTML = result;
+    displayBox.innerHTML = result;
+
 
 }
 equalButton.addEventListener("click", equalClick)
@@ -89,6 +92,9 @@ const calculation = () => {
         case "÷":
             return num1 / num2;
 
+        case "^":
+            return Math.pow(num1, num2);
+
     }
 }
 
@@ -102,6 +108,7 @@ const clearResult = (event) => {
     operator = "";
     displayString = "";
     displayBox.innerHTML = "";
+    resultBox.innerHTML = "";
 }
 ACButton.addEventListener("click", clearResult);
 
@@ -118,8 +125,9 @@ backspaceButton.addEventListener("click", backspace);
 //+/-
 const switchButton = document.querySelector("#symbol");
 const switchSymbol = (event) => {
-    displayString = 0 - displayString;
-    displayBox.innerHTML = displayString;
+    const currentDisplay = displayBox.innerHTML;
+    const newDisplay = 0 - currentDisplay;
+    displayBox.innerHTML = newDisplay;
 }
 switchButton.addEventListener("click", switchSymbol);
 //--------------how to switch symbol for num2--------------/////
@@ -129,20 +137,20 @@ switchButton.addEventListener("click", switchSymbol);
 
 
 //!
-const facButton = document.querySelector("#factorial");
-const facClick = (event) => {
-    result = factorial(displayString);
-    console.log(result);
-    displayString += "!=" + result;
-    console.log(displayString);
-    displayBox.innerHTML = displayString;
+// const facButton = document.querySelector("#factorial");
+// const facClick = (event) => {
+//     result = factorial(displayString);
+//     console.log(result);
+//     displayString += "!=" + result;
+//     console.log(displayString);
+//     displayBox.innerHTML = displayString;
 
-}
-const factorial = (n) => {
-    if (n <= 1) {
-        return 1;
-    } else {
-        return n * factorial(n - 1);
-    }
-}
-facButton.addEventListener("click", facClick);
+// }
+// const factorial = (n) => {
+//     if (n <= 1) {
+//         return 1;
+//     } else {
+//         return n * factorial(n - 1);
+//     }
+// }
+// facButton.addEventListener("click", facClick);
