@@ -92,7 +92,7 @@ const calculation = () => {
         case "÷":
             return num1 / num2;
 
-        case "^":
+        case "a^n":
             return Math.pow(num1, num2);
 
     }
