@@ -10,8 +10,8 @@
 //calculate get result shown in display
 
 //global variable
-let num1 = "";
-let num2 = "";
+let num1 = 0;
+let num2 = 0;
 let result = "";
 let displayString = "";
 let operator = "";
@@ -107,7 +107,7 @@ const clearResult = (event) => {
     result = "";
     operator = "";
     displayString = "";
-    displayBox.innerHTML = "";
+    displayBox.innerHTML = "0";
     resultBox.innerHTML = "";
 }
 ACButton.addEventListener("click", clearResult);
@@ -130,13 +130,71 @@ const switchSymbol = (event) => {
     displayBox.innerHTML = newDisplay;
 }
 switchButton.addEventListener("click", switchSymbol);
-//--------------how to switch symbol for num2--------------/////
+
+
+//eventlistener for keyboard...instead of clicking, type
+document.addEventListener('keypress', (event) => {
+    var name = event.key;
+    var code = event.code;
+    switch (name) {
+        case "c": clearResult();
+            break;                        //work!!!!!\(▔▽▔)/
+
+        ///////////////from here is not working(╯▔皿▔)╯   //////////////////
+        case "backspace":
+        case "delete": backspace();
+            break;
+        case "enter": calculation();
+            break;
+        case "add":
+        case "subtract":
+        case "multiply":
+        case "divide":
+        case "shift+6":
+            operatorClick();
+            break;
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+        case "0":
+        case "numpad 1":
+        case "numpad 2":
+        case "numpad 3":
+        case "numpad 4":
+        case "numpad 5":
+        case "numpad 6":
+        case "numpad 7":
+        case "numpad 8":
+        case "numpad 9":
+        case "numpad 0":
+        case "decimal point":
+            buttonClick();
+    }
+})
 
 
 
 
 
-//!
+
+
+
+
+
+
+
+
+
+
+
+
+//factorial !
 // const facButton = document.querySelector("#factorial");
 // const facClick = (event) => {
 //     result = factorial(displayString);
@@ -153,4 +211,4 @@ switchButton.addEventListener("click", switchSymbol);
 //         return n * factorial(n - 1);
 //     }
 // }
-// facButton.addEventListener("click", facClick);
+// facButton.addEventListener("click", facClick)
