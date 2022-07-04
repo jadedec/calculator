@@ -14,7 +14,7 @@ let num1 = "";
 let num2 = "";
 let result = "";
 let displayString = "";
-let operator;
+let operator = "";
 
 
 const displayBox = document.querySelector("#display");
@@ -44,7 +44,7 @@ equalButton.addEventListener("click", buttonClick);
 //when operator clicked, give the number to num1
 const operatorClick = (event) => {
     //console.log("Operator clicked");
-    num1 = parseFloat(displayBox.innerHTML);
+    num1 = parseFloat(displayBox.innerHTML);//make sure it is number!!!!
     console.log(`number1 is ${num1}`);
     operator = event.target.innerHTML;
     //console.log(operator);
@@ -57,7 +57,7 @@ const equalClick = (event) => {
     //console.log("Equal clicked");
     newArr = displayString.split(/[+\-\×\÷\=]/);
     //console.log(newArr);
-    num2 = parseFloat(newArr[1]);
+    num2 = parseFloat(newArr[1]);//make sure it is number!!!!
     console.log(`number2 is ${num2}`);
 
     //calculation
@@ -122,7 +122,7 @@ const switchSymbol = (event) => {
     displayBox.innerHTML = displayString;
 }
 switchButton.addEventListener("click", switchSymbol);
-
+//--------------how to switch symbol for num2--------------/////
 
 
 

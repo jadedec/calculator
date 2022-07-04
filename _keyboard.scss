@@ -8,6 +8,7 @@
     grid-template-rows: repeat(5,1fr);
     height: 50%;
     width: 90%;
+    justify-content: space-around;
 
     .calculatorKeyboard_button{
         border: none;
@@ -41,12 +42,12 @@
     }
 }
 
-@media screen and (min-width:768px){
-    .calculatorKeyboard{
-        .calculatorKeyboard_button{
-            width: 5rem;
-            height: 5rem;
-            font-size: 2.5rem;
-        }
-    }
-}
+// @media screen and (min-width:768px){
+//     .calculatorKeyboard{
+//         .calculatorKeyboard_button{
+//             width: 5rem;
+//             height: 5rem;
+//             font-size: 2.5rem;
+//         }
+//     }
+// }

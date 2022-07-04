@@ -14,11 +14,6 @@
   word-break: break-all;
 }
 
-@media screen and (min-width: 768px) {
-  .calculatorDisplay .calculatorDisplay_output {
-    font-size: 3rem;
-  }
-}
 .calculatorKeyboard {
   margin-top: 30px;
   display: grid;
@@ -27,6 +22,7 @@
   grid-template-rows: repeat(5, 1fr);
   height: 50%;
   width: 90%;
+  justify-content: space-around;
 }
 .calculatorKeyboard .calculatorKeyboard_button {
   border: none;
@@ -53,13 +49,6 @@
   border-radius: 25%;
 }
 
-@media screen and (min-width: 768px) {
-  .calculatorKeyboard .calculatorKeyboard_button {
-    width: 5rem;
-    height: 5rem;
-    font-size: 2.5rem;
-  }
-}
 * {
   margin: 0;
   padding: 0;
@@ -88,7 +77,7 @@ body {
   .calculator {
     border-radius: 20px;
     border: 2px solid gold;
-    width: 650px;
-    height: 800px;
+    width: 400px;
+    height: 700px;
   }
 }/*# sourceMappingURL=style.css.map */
