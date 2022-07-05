@@ -1,13 +1,4 @@
 
-//number button
-//button pressed,log in the console,
-//shown in the display
-//querySelectorAll .class
-//store the first number before click on operate button
-//store the operator
-//start the second number
-//click =  store  second number
-//calculate get result shown in display
 
 //global variable
 let num1 = 0;
@@ -26,13 +17,8 @@ const equalButton = document.querySelector("#equal");
 
 const buttonClick = (event) => {
     //button clicked
-    //console.log("Button Clicked");
-    // console.log(event.target.innerHTML);
-
     //connect inputs together
     displayString += event.target.innerHTML;
-    //console.log(displayString);
-
     displayBox.innerHTML = displayString;
 }
 //make it shown in display
@@ -43,22 +29,18 @@ numberButton.forEach(button => { button.addEventListener("click", buttonClick) }
 
 //when operator clicked, give the number to num1
 const operatorClick = (event) => {
-    //console.log("Operator clicked");
     num1 = parseFloat(displayBox.innerHTML);//make sure it is number!!!!
     console.log(`number1 is ${num1}`);
     operator = event.target.innerHTML;
     resultBox.innerHTML = `${num1} ${operator}`
     displayString = "";
-    //console.log(operator);
 
 }
 operateButton.forEach(button => { button.addEventListener("click", operatorClick) });
 
 //when equal clicked, give the number to num2
 const equalClick = (event) => {
-    //console.log("Equal clicked");
     // newArr = displayString.split(/[+\-\×\÷\=]/);
-    // //console.log(newArr);
     // num2 = parseFloat(newArr[1]);//make sure it is number!!!!
     num2 = parseFloat(displayBox.innerHTML)
     console.log(`number2 is ${num2}`);
@@ -66,11 +48,8 @@ const equalClick = (event) => {
     //calculation
     result = calculation();
     console.log(result);
-
     resultBox.innerHTML = result;
     displayBox.innerHTML = result;
-
-
 }
 equalButton.addEventListener("click", equalClick)
 
@@ -92,7 +71,7 @@ const calculation = () => {
         case "÷":
             return num1 / num2;
 
-        case "a^n":
+        case "^":
             return Math.pow(num1, num2);
 
     }
