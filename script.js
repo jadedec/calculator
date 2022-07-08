@@ -111,6 +111,21 @@ const switchSymbol = (event) => {
 switchButton.addEventListener("click", switchSymbol);
 
 
+
+const dotButton = document.querySelector("#dot");
+const handleDot = (event) => {
+    if (displayBox.innerHTML.includes(".")) {
+        alert("Number is already a decimal.")
+    } else {
+        displayString += event.target.innerHTML;
+        displayBox.innerHTML = displayString;
+    }
+}
+dotButton.addEventListener("click", handleDot);
+
+
+
+
 //eventlistener for keyboard...instead of clicking, type
 document.addEventListener('keypress', (event) => {
     var name = event.key;
