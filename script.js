@@ -14,12 +14,26 @@ const numberButton = document.querySelectorAll(".calculatorKeyboard_button--numb
 const operateButton = document.querySelectorAll(".calculatorKeyboard_button--operate");
 const equalButton = document.querySelector("#equal");
 
+//can build a function for htmlUpdate
+// const htmlUpdate = () => {
+//     displayBox.innerText = `${num1} ${operator} ${num2}`;
+//     resultBox.innerText = result;
+// }
+
 
 const buttonClick = (event) => {
     //button clicked
     //connect inputs together
     displayString += event.target.innerHTML;
     displayBox.innerHTML = displayString;
+
+    ////////num1 num2
+    // if (operator === "") {
+    //     num1 += event.target.innerHTML;
+    // } else {
+    //     num2 += event.target.innerHTML;
+    // }
+    // htmlUpdate();
 }
 //make it shown in display
 //number and operator displayed
@@ -34,6 +48,8 @@ const operatorClick = (event) => {
     operator = event.target.innerHTML;
     resultBox.innerHTML = `${num1} ${operator}`
     displayString = "";
+
+    //TODO:if there is no num1, make it zero
 
 }
 operateButton.forEach(button => { button.addEventListener("click", operatorClick) });
@@ -57,7 +73,12 @@ equalButton.addEventListener("click", equalClick)
 
 
 //+-×÷ switch cases
-const calculation = () => {
+const calculation = (num1, operator, num2) => {
+
+    if (typeof num1 !== "number" || typeof num2 !== "number") {
+        console.error("numbers must be type 'number'");
+        return;
+    }
     switch (operator) {
         case "+":
             return num1 + num2;
@@ -73,6 +94,10 @@ const calculation = () => {
 
         case "^":
             return Math.pow(num1, num2);
+
+        //undefined operator///////console.error will be red in browser
+        default:
+            console.error(`unhandled operator: ${operator}`);
 
     }
 }
