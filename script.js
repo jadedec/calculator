@@ -1,104 +1,96 @@
 
-
 //global variable
 let num1 = 0;
 let num2 = 0;
 let result = "";
-let displayString = "";
 let operator = "";
 
 
-const displayBox = document.querySelector("#display");
-const resultBox = document.querySelector("#result");
+const inputBox = document.querySelector("#input");
+const resultBox = document.querySelector("#output");
 const numberButton = document.querySelectorAll(".calculatorKeyboard_button--number");
 const operateButton = document.querySelectorAll(".calculatorKeyboard_button--operate");
 const equalButton = document.querySelector("#equal");
 
-//can build a function for htmlUpdate
-// const htmlUpdate = () => {
-//     displayBox.innerText = `${num1} ${operator} ${num2}`;
-//     resultBox.innerText = result;
-// }
-
 
 const buttonClick = (event) => {
-    //button clicked
-    //connect inputs together
-    displayString += event.target.innerHTML;
-    displayBox.innerHTML = displayString;
-
-    ////////num1 num2
-    // if (operator === "") {
-    //     num1 += event.target.innerHTML;
-    // } else {
-    //     num2 += event.target.innerHTML;
-    // }
-    // htmlUpdate();
+    inputBox.innerHTML += event.target.innerHTML;
+    if (operator !== "") {
+        num2 = inputBox.innerHTML;
+        console.log(`number2 is ${num2}`);
+    }
 }
 //make it shown in display
 //number and operator displayed
 numberButton.forEach(button => { button.addEventListener("click", buttonClick) });
-//operateButton.forEach(button => { button.addEventListener("click", buttonClick) });
-//equalButton.addEventListener("click", buttonClick);
+
+
+
 
 //when operator clicked, give the number to num1
 const operatorClick = (event) => {
-    num1 = parseFloat(displayBox.innerHTML);//make sure it is number!!!!
-    console.log(`number1 is ${num1}`);
-    operator = event.target.innerHTML;
-    resultBox.innerHTML = `${num1} ${operator}`
-    displayString = "";
-
-    //TODO:if there is no num1, make it zero
-
+    if (num1 == "") {
+        num1 = inputBox.innerHTML;
+        console.log(`number1 is ${num1}`);
+        operator = event.target.innerHTML;
+        resultBox.innerHTML = `${num1} ${operator}`
+        inputBox.innerHTML = "";
+    } else if (num1 !== "" && num2 == "") {
+        operator = event.target.innerHTML;
+        resultBox.innerHTML = `${num1} ${operator}`
+        inputBox.innerHTML = "";
+    }
+    else {
+        num1 = calculation(num1, operator, num2);
+        operator = event.target.innerHTML;
+        resultBox.innerHTML = `${num1} ${operator}`;
+        inputBox.innerHTML = "";
+        num2 = "";
+        console.log(`num1 :${num1}`);
+        console.log(`num2 :${num2}`);
+    }
 }
 operateButton.forEach(button => { button.addEventListener("click", operatorClick) });
 
+
+
 //when equal clicked, give the number to num2
 const equalClick = (event) => {
-    // newArr = displayString.split(/[+\-\×\÷\=]/);
-    // num2 = parseFloat(newArr[1]);//make sure it is number!!!!
-    num2 = parseFloat(displayBox.innerHTML)
-    console.log(`number2 is ${num2}`);
-
     //calculation
-    result = calculation();
-    console.log(result);
-    resultBox.innerHTML = result;
-    displayBox.innerHTML = result;
+    num1 = calculation(num1, operator, num2);
+    resultBox.innerHTML = "";
+    inputBox.innerHTML = num1;
+    num2 = "";
+    operator = "";
 }
-equalButton.addEventListener("click", equalClick)
+equalButton.addEventListener("click", equalClick);
 
 
 
 
 //+-×÷ switch cases
 const calculation = (num1, operator, num2) => {
-
-    if (typeof num1 !== "number" || typeof num2 !== "number") {
-        console.error("numbers must be type 'number'");
-        return;
-    }
+    num1 = parseFloat(num1);
+    num2 = parseFloat(num2);
     switch (operator) {
         case "+":
             return num1 + num2;
 
         case "-":
             return num1 - num2;
-
+            break;
         case "×":
             return num1 * num2;
-
+            break;
         case "÷":
             return num1 / num2;
-
+            break;
         case "^":
             return Math.pow(num1, num2);
-
+            break;
         //undefined operator///////console.error will be red in browser
         default:
             console.error(`unhandled operator: ${operator}`);
-
     }
 }
 
@@ -108,10 +100,8 @@ const ACButton = document.querySelector("#AC");
 const clearResult = (event) => {
     num1 = "";
     num2 = "";
-    result = "";
     operator = "";
-    displayString = "";
-    displayBox.innerHTML = "0";
+    inputBox.innerHTML = "";
     resultBox.innerHTML = "";
 }
 ACButton.addEventListener("click", clearResult);
@@ -120,18 +110,16 @@ ACButton.addEventListener("click", clearResult);
 // backspace function for  button
 const backspaceButton = document.querySelector("#delete");
 const backspace = (event) => {
-    const newDisplay = displayString.substring(0, displayString.length - 1);
-    displayString = newDisplay;
-    displayBox.innerHTML = displayString;
+    inputBox.innerHTML = inputBox.innerHTML.substring(0, inputBox.innerHTML.length - 1);
 }
 backspaceButton.addEventListener("click", backspace);
 
 //+/-
 const switchButton = document.querySelector("#symbol");
 const switchSymbol = (event) => {
-    const currentDisplay = displayBox.innerHTML;
+    const currentDisplay = inputBox.innerHTML;
     const newDisplay = 0 - currentDisplay;
-    displayBox.innerHTML = newDisplay;
+    inputBox.innerHTML = newDisplay;
 }
 switchButton.addEventListener("click", switchSymbol);
 
@@ -139,11 +127,10 @@ switchButton.addEventListener("click", switchSymbol);
 
 const dotButton = document.querySelector("#dot");
 const handleDot = (event) => {
-    if (displayBox.innerHTML.includes(".")) {
+    if (inputBox.innerHTML.includes(".")) {
         alert("Number is already a decimal.")
     } else {
-        displayString += event.target.innerHTML;
-        displayBox.innerHTML = displayString;
+        inputBox.innerHTML += event.target.innerHTML;
     }
 }
 dotButton.addEventListener("click", handleDot);
@@ -151,83 +138,3 @@ dotButton.addEventListener("click", handleDot);
 
 
 
-//eventlistener for keyboard...instead of clicking, type
-document.addEventListener('keypress', (event) => {
-    var name = event.key;
-    var code = event.code;
-    switch (name) {
-        case "c": clearResult();
-            break;                        //work!!!!!\(▔▽▔)/
-
-        ///////////////from here is not working(╯▔皿▔)╯   //////////////////
-        case "backspace":
-        case "delete": backspace();
-            break;
-        case "enter": calculation();
-            break;
-        case "add":
-        case "subtract":
-        case "multiply":
-        case "divide":
-        case "shift+6":
-            operatorClick();
-            break;
-        case "1":
-        case "2":
-        case "3":
-        case "4":
-        case "5":
-        case "6":
-        case "7":
-        case "8":
-        case "9":
-        case "0":
-        case "numpad 1":
-        case "numpad 2":
-        case "numpad 3":
-        case "numpad 4":
-        case "numpad 5":
-        case "numpad 6":
-        case "numpad 7":
-        case "numpad 8":
-        case "numpad 9":
-        case "numpad 0":
-        case "decimal point":
-            buttonClick();
-    }
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//factorial !
-// const facButton = document.querySelector("#factorial");
-// const facClick = (event) => {
-//     result = factorial(displayString);
-//     console.log(result);
-//     displayString += "!=" + result;
-//     console.log(displayString);
-//     displayBox.innerHTML = displayString;
-
-// }
-// const factorial = (n) => {
-//     if (n <= 1) {
-//         return 1;
-//     } else {
-//         return n * factorial(n - 1);
-//     }
-// }
-// facButton.addEventListener("click", facClick)
